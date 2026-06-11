@@ -4,6 +4,6 @@ int main()
 {
     // http::TcpServer server("127.0.0.1", 8080);
     auto app = http::App("127.0.0.1", 8000);
-
+    app.build();
     return 0;
 }

@@ -16,4 +16,8 @@ namespace http
             server_ = std::make_unique<LinuxTcpServer>(ip_address, port);
         #endif
     }
+    void App::build()
+    {
+        server_->startListen();
+    }
 }
