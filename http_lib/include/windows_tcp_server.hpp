@@ -1,25 +1,25 @@
-#pragma once 
-#include "tcp_server.hpp"
-#include "utility.hpp"
-
 #ifdef _WIN32
-    #error "This header is for Windows only. Please include tcp_server.hpp instead."   
+    #pragma once 
+    #include "tcp_server.hpp"
+    #include "utility.hpp"
     #include <winsock2.h>
     
     namespace http
     {
         class WindowsTcpServer : public TcpServer
         {
-            public:
+        public:
             WindowsTcpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
-            ~WindowsTcpServer() override = default;
+            virtual ~WindowsTcpServer() override;
             
+            virtual void startListen() override;
+            virtual void acceptConnection(SOCKET& new_socket) override;
+            virtual void sendResponse() override;
+
+        
+            private:
             virtual int startServer() override;
             virtual void closeServer() override;
-            private:
-            SOCKET socket_;
-            SOCKET new_socket_;
-            WSADATA wsaData_;
         };
     }
 #endif

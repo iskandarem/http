@@ -13,9 +13,7 @@
 namespace http
 {
     LinuxTcpServer::LinuxTcpServer(const std::string& ip_address, int port): 
-        TcpServer(ip_address, port),
-        socket_{},
-        new_socket_{}
+        TcpServer(ip_address, port)
     {
         socket_address_length_ = sizeof(socket_address_);
         socket_address_.sin_family = AF_INET;

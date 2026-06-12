@@ -19,3 +19,7 @@ else()
 endif()
 # Define public include paths so dependents can find the header files automatically
 target_include_directories(http_lib PUBLIC include)
+
+if(WIN32)
+    target_link_libraries(http_lib PRIVATE ws2_32)
+endif()

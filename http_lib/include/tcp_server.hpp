@@ -3,6 +3,7 @@
 
 #ifdef _WIN32
     #include<winsock2.h>
+    #include <WS2tcpip.h>
 #endif
 
 namespace http
@@ -26,14 +27,28 @@ namespace http
         std::string ip_address_;
         int port_;
         long incoming_message_;
+        #ifdef __linux__ 
+
         unsigned int socket_address_length_;
+        int socket_;
+        int new_socket_;
+        struct sockaddr_in socket_address_;
+
+        #elif _WIN32
+
+        int socket_address_length_;
+        SOCKET socket_;
+        SOCKET new_socket_;
+        struct sockaddr_in socket_address_;
+        WSADATA wsaData_;
+
+        #endif
         std::string server_message_;
 
         std::string buildResponse();
-        
         virtual int startServer() = 0;
         virtual void closeServer() = 0;
 
-        const int BUFFER_SIZE = 30720;
+        static constexpr int BUFFER_SIZE = 30720;
     };
 }
