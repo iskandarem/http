@@ -4,6 +4,8 @@
 #ifdef _WIN32
     #include<winsock2.h>
     #include <WS2tcpip.h>
+#elif __linux__
+    #include <arpa/inet.h>
 #endif
 
 namespace http

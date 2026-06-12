@@ -1,7 +1,6 @@
 #ifdef __linux__
 #pragma once 
 #include "tcp_server.hpp"
-#include <arpa/inet.h>
 namespace http
 {
     class LinuxTcpServer : public TcpServer

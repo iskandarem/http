@@ -1,14 +1,11 @@
-#include "linux_tcp_server.hpp"
-
-
 #ifdef __linux__
-
+#include "linux_tcp_server.hpp"
 #include "utility.hpp"
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include <sstream>
 #include <cstring>
+#include <format>
 
 namespace http
 {
@@ -22,9 +19,7 @@ namespace http
 
         if (startServer() != 0)
         {
-            std::ostringstream ss;
-            ss << "Failed to start server with PORT: " << ntohs(socket_address_.sin_port);
-            log(ss.str());
+            log(std::format("Failed to start server with PORT: {}", ntohs(socket_address_.sin_port)));
         }
     }
 
@@ -34,10 +29,7 @@ namespace http
         {
             exitWithError("Socket listen failed");
         }
-
-        std::ostringstream oss;
-        oss << "\n*** Listening on ADDRESS: " << inet_ntoa(socket_address_.sin_addr) << " PORT: " << ntohs(socket_address_.sin_port) << " ***\n\n";
-        log(oss.str());
+        log(std::format("\n*** Listening on ADDRESS: {} PORT: {} ***\n\n", inet_ntoa(socket_address_.sin_addr), ntohs(socket_address_.sin_port)));
 
         int bytesReceived{};
         while (true)
@@ -66,10 +58,9 @@ namespace http
         new_socket = accept(socket_, (sockaddr *)&socket_address_, &socket_address_length_);
         if (new_socket < 0)
         {
-            std::ostringstream ss;
-            ss << "Server failed to accept incoming connection from ADDRESS: " << inet_ntoa(socket_address_.sin_addr) 
-            << "; PORT: " << ntohs(socket_address_.sin_port);
-            exitWithError(ss.str());
+            
+            exitWithError(std::format("Server failed to accept incoming connection from ADDRESS: {0}; PORT: {0}", 
+                inet_ntoa(socket_address_.sin_addr), ntohs(socket_address_.sin_port)));
         }
     }
 
@@ -103,12 +94,7 @@ namespace http
             return 1;
         }
         log("Socket created successfully");
-        std::ostringstream ss;
-        ss << "\n*** Listening on ADDRESS: " 
-            << inet_ntoa(socket_address_.sin_addr) 
-            << " PORT: " << ntohs(socket_address_.sin_port) 
-            << " ***\n\n";
-        log(ss.str());
+        log(std::format("\n*** Listening on ADDRESS: {} PORT: {} ***\n\n", inet_ntoa(socket_address_.sin_addr), ntohs(socket_address_.sin_port)));
         return 0;
     }
 
