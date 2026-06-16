@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <cstring>
 #include <format>
+#include <iostream>
+#include "http_request.hpp"
 
 namespace http
 {
@@ -37,8 +39,7 @@ namespace http
             log("====== Waiting for a new connection ======\n\n\n");
             acceptConnection(new_socket_);
 
-            char buffer[BUFFER_SIZE];
-            std::memset(buffer, 0, BUFFER_SIZE);
+            char buffer[BUFFER_SIZE] = {0};
             bytesReceived = read(new_socket_, buffer, BUFFER_SIZE);
             if(bytesReceived < 0)
             {
@@ -103,7 +104,6 @@ namespace http
         close(socket_);
         close(new_socket_);
         http::log("Sockets closed successfully");
-        exit(0);
     }
 }
 
