@@ -1,5 +1,5 @@
 #ifdef __linux__
-#include "linux_tcp_server.hpp"
+#include "linux_http_server.hpp"
 #include "utility.hpp"
 #include <sys/socket.h>
 #include <arpa/inet.h>
@@ -11,8 +11,8 @@
 
 namespace http
 {
-    LinuxTcpServer::LinuxTcpServer(const std::string& ip_address, int port): 
-        TcpServer(ip_address, port)
+    LinuxHttpServer::LinuxHttpServer(const std::string& ip_address, int port): 
+        HttpServer(ip_address, port)
     {
         socket_address_length_ = sizeof(socket_address_);
         socket_address_.sin_family = AF_INET;
@@ -25,7 +25,7 @@ namespace http
         }
     }
 
-    void LinuxTcpServer::startListen()
+    void LinuxHttpServer::startListen()
     {
         if(listen(socket_, 20) < 0)
         {
@@ -54,7 +54,7 @@ namespace http
         
     }
 
-    void LinuxTcpServer::acceptConnection(int &new_socket)
+    void LinuxHttpServer::acceptConnection(int &new_socket)
     {
         new_socket = accept(socket_, (sockaddr *)&socket_address_, &socket_address_length_);
         if (new_socket < 0)
@@ -65,7 +65,7 @@ namespace http
         }
     }
 
-    void LinuxTcpServer::sendResponse()
+    void LinuxHttpServer::sendResponse()
     {
         long bytesSent;
 
@@ -81,7 +81,7 @@ namespace http
         }
     }
 
-    int LinuxTcpServer::startServer()
+    int LinuxHttpServer::startServer()
     {
         socket_ = socket(AF_INET, SOCK_STREAM, 0);
         if (socket_ < 0)
@@ -99,7 +99,7 @@ namespace http
         return 0;
     }
 
-    void LinuxTcpServer::closeServer()
+    void LinuxHttpServer::closeServer()
     {
         close(socket_);
         close(new_socket_);

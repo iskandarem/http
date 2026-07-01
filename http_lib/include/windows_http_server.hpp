@@ -1,16 +1,16 @@
 #ifdef _WIN32
     #pragma once 
-    #include "tcp_server.hpp"
+    #include "http_server.hpp"
     #include "utility.hpp"
     #include <winsock2.h>
     
     namespace http
     {
-        class WindowsTcpServer : public TcpServer
+        class WindowsHttpServer : public HttpServer
         {
         public:
-            WindowsTcpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
-            virtual ~WindowsTcpServer() override;
+            WindowsHttpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
+            virtual ~WindowsHttpServer() override;
             
             virtual void startListen() override;
             virtual void acceptConnection(SOCKET& new_socket) override;

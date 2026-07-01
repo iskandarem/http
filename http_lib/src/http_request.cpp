@@ -1,5 +1,5 @@
 #include "http_request.hpp"
-#include "http_exception.hpp"
+#include "exception/bad_request.hpp"
 #include "utility.hpp"
 #include <algorithm>
 #include <ranges>
@@ -144,7 +144,7 @@ namespace http
                 throw exception::BadRequest("Invalid header value");
             }
             
-            req.headers_.set(key, val);
+            req.headers_.insert(std::pair<std::string, std::string>(key, val));
             
             pos = line_end+2;
         }
@@ -155,7 +155,7 @@ namespace http
 
         if(req.headers_.contains("content-length"))
         {
-            std::size_t content_length = std::stoi(std::string{req.headers_.get("content-length")});
+            std::size_t content_length = std::stoi(std::string{req.headers_.at("content-length")});
             if(body_part.size() < content_length)
             {
                 throw exception::BadRequest("Incomplete body");

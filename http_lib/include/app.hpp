@@ -1,5 +1,5 @@
 #pragma once 
-#include "tcp_server.hpp"
+#include "http_server.hpp"
 #include <memory>
 
 
@@ -12,6 +12,6 @@ namespace http
         
         void build();
     private:
-        std::unique_ptr<TcpServer> server_;
+        std::unique_ptr<HttpServer> server_;
     };
 }

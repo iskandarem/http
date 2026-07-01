@@ -1,13 +1,13 @@
 #ifdef __linux__
 #pragma once 
-#include "tcp_server.hpp"
+#include "http_server.hpp"
 namespace http
 {
-    class LinuxTcpServer : public TcpServer
+    class LinuxHttpServer : public HttpServer
     {
     public:
-        LinuxTcpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
-        virtual ~LinuxTcpServer() override { closeServer(); };
+        LinuxHttpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
+        virtual ~LinuxHttpServer() override { closeServer(); };
 
         virtual void startListen() override;
         virtual void acceptConnection(int& new_socket) override; 

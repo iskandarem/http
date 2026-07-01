@@ -1,5 +1,6 @@
 #include "utility.hpp"
-#include "http_exception.hpp"
+#include "exception/bad_request.hpp"
+#include "exception/http_server_exception.hpp"
 #include <iostream>
 #include <algorithm>
 #include <ranges>
@@ -16,7 +17,7 @@ namespace http
     void exitWithError(const std::string& error_message)
     {
         std::cerr << "Error: " << error_message << std::endl;
-        throw exception::HttpServerError(std::format("Error: {}", error_message));
+        throw exception::HttpServerException(std::format("Error: {}", error_message));
     }
     std::string to_lower(std::string_view sv)
     {

@@ -1,6 +1,7 @@
 #pragma once 
-#include "http_header.hpp"
-
+#include <unordered_map>
+#include <string_view>
+#include <string>
 namespace http
 {
     class HttpRequest
@@ -20,8 +21,7 @@ namespace http
         std::string path_; // /login
         std::string version_; // HTTP/1.1
         std::unordered_map<std::string, std::string> query_params_; // "from"="linux", ...
+        std::unordered_map<std::string, std::string> headers_;
         std::string raw_body_;
-    public:
-        HttpHeader headers_; 
     };
 } // namespace http

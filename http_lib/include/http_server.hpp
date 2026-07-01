@@ -10,11 +10,11 @@
 
 namespace http
 {
-    class TcpServer
+    class HttpServer
     {
     public:
-        TcpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
-        virtual ~TcpServer() = default;
+        HttpServer(const std::string& ip_address = "127.0.0.1", int port = 8000);
+        virtual ~HttpServer() = default;
 
         virtual void startListen() = 0;
 

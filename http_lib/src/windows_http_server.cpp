@@ -1,10 +1,10 @@
 #ifdef _WIN32
-#include "windows_tcp_server.hpp"
+#include "windows_http_server.hpp"
 #include <format>
 namespace http
 {
-    WindowsTcpServer::WindowsTcpServer(const std::string& ip_address, int port):
-        TcpServer(ip_address, port)
+    WindowsHttpServer::WindowsHttpServer(const std::string& ip_address, int port):
+        HttpServer(ip_address, port)
     {
         socket_address_length_ = sizeof(socket_address_);
         socket_ = INVALID_SOCKET;
@@ -31,12 +31,12 @@ namespace http
         }
     }
 
-    WindowsTcpServer::~WindowsTcpServer()
+    WindowsHttpServer::~WindowsHttpServer()
     {
         closeServer();
     }
 
-    void WindowsTcpServer::startListen()
+    void WindowsHttpServer::startListen()
     {
         if(listen(socket_, 20) == SOCKET_ERROR)
         {
@@ -68,7 +68,7 @@ namespace http
         }
     }
 
-    void WindowsTcpServer::acceptConnection(SOCKET& new_socket)
+    void WindowsHttpServer::acceptConnection(SOCKET& new_socket)
     {
         new_socket = accept(socket_, (struct sockaddr*)&socket_address_, &socket_address_length_);
         
@@ -79,7 +79,7 @@ namespace http
         }
     }
 
-    void WindowsTcpServer::sendResponse()
+    void WindowsHttpServer::sendResponse()
     {
         long bytesSent = send(new_socket_, buildResponse().c_str(), static_cast<int>(buildResponse().length()), 0);
 
@@ -94,7 +94,7 @@ namespace http
     }
 
 
-    int WindowsTcpServer::startServer()
+    int WindowsHttpServer::startServer()
     {
         int iResult = WSAStartup(MAKEWORD(2, 0), &wsaData_);
         if (iResult != 0)
@@ -125,7 +125,7 @@ namespace http
         return 0;
     }
 
-    void WindowsTcpServer::closeServer()
+    void WindowsHttpServer::closeServer()
     {
         if (socket_ != INVALID_SOCKET)
         {

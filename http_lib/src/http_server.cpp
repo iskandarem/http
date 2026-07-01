@@ -1,7 +1,7 @@
-#include "tcp_server.hpp"
+#include "http_server.hpp"
 #include <format>
 
-http::TcpServer::TcpServer(const std::string &ip_address, int port):
+http::HttpServer::HttpServer(const std::string &ip_address, int port):
     ip_address_(ip_address),
     port_(port),
     incoming_message_{},
@@ -15,7 +15,7 @@ http::TcpServer::TcpServer(const std::string &ip_address, int port):
 {
 }
 
-std::string http::TcpServer::buildResponse()
+std::string http::HttpServer::buildResponse()
 {
     std::string response = "HTTP/1.1 200 OK\r\n";
     response += "Content-Type: text/plain\r\n";
