@@ -16,7 +16,8 @@ else()
         src/http_server.cpp
         src/utility.cpp
         src/linux_http_server.cpp
-        src/http_request.cpp) # have to add the source files here, e.g., src/tcp_server.cpp
+        src/http_request.cpp
+        src/http_response.cpp) # have to add the source files here, e.g., src/tcp_server.cpp
 endif()
 
 # Define public include paths so dependents can find the header files automatically

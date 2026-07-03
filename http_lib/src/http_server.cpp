@@ -17,9 +17,6 @@ http::HttpServer::HttpServer(const std::string &ip_address, int port):
 
 std::string http::HttpServer::buildResponse()
 {
-    std::string response = "HTTP/1.1 200 OK\r\n";
-    response += "Content-Type: text/plain\r\n";
-
     // Raw string literal preserves formatting and handles quotes automatically
     const std::string html_response = R"(<!DOCTYPE html>
     <html lang="en">
