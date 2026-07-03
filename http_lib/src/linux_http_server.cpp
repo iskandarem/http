@@ -31,7 +31,7 @@ namespace http
         {
             exitWithError("Socket listen failed");
         }
-        log(std::format("\n*** Listening on ADDRESS: {} PORT: {} ***\n\n", inet_ntoa(socket_address_.sin_addr), ntohs(socket_address_.sin_port)));
+        log(std::format("\n*** Listening on  http://{}:{} ***\n\n", inet_ntoa(socket_address_.sin_addr), ntohs(socket_address_.sin_port)));
 
         int bytesReceived{};
         while (true)
@@ -42,8 +42,6 @@ namespace http
             char* buffer = new char[BUFFER_SIZE];
             bytesReceived = read(new_socket_, buffer, BUFFER_SIZE);
             HttpRequest req = HttpRequest::parse(buffer);
-            std::cout << buffer << std::endl;
-            std::cout << req.to_string() << std::endl;
             if(bytesReceived < 0)
             {
                 exitWithError("failed to read bytes from client socket connection");
@@ -171,7 +169,6 @@ namespace http
             return 1;
         }
         log("Socket created successfully");
-        log(std::format("\n*** Listening on ADDRESS: {} PORT: {} ***\n\n", inet_ntoa(socket_address_.sin_addr), ntohs(socket_address_.sin_port)));
         return 0;
     }
 
