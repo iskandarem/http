@@ -39,8 +39,9 @@ namespace http
             log("====== Waiting for a new connection ======\n\n\n");
             acceptConnection(new_socket_);
 
-            char buffer[BUFFER_SIZE] = {0};
+            char* buffer = new char[BUFFER_SIZE];
             bytesReceived = read(new_socket_, buffer, BUFFER_SIZE);
+            std::cout<< buffer << std::endl;
             if(bytesReceived < 0)
             {
                 exitWithError("failed to read bytes from client socket connection");

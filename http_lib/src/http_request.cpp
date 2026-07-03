@@ -8,29 +8,58 @@
 
 namespace http
 {
-    std::string_view HttpRequest::getMethod() const
+    const std::string& HttpRequest::getMethod() const
     {
         return method_;
     }
 
-    std::string_view HttpRequest::getPath() const
+    const std::string& HttpRequest::getPath() const
     {
         return path_;
     }
 
-    std::string_view HttpRequest::getUrl() const
+    const std::string& HttpRequest::getUrl() const
     {
-        return std::string_view{};
+        return target_;
     }
 
-    std::string_view HttpRequest::getQueryParam(std::string_view key, std::string_view _default) const
+    const std::string& HttpRequest::getQueryParam(std::string_view key, const std::string& _default) const
     {
         return (query_params_.contains(std::string{key}))? query_params_.at(std::string{key}) : _default;
     }
     
-    std::string_view HttpRequest::getBodyAsText() const
+    const std::string& HttpRequest::getBodyAsText() const
     {
         return raw_body_;
+    }
+
+    std::string HttpRequest::to_string() const
+    {
+        std::string result{};
+        
+        //----------------
+        // Request line
+        //----------------
+        result += 
+            method_ + " " +
+            target_ + " " +
+            version_ + "\r\n"; // request line
+
+        //-----------------
+        // Headers
+        //-----------------
+        for(const auto& [key, val] : Headers)
+        {
+            result += key + ":" + " " + val + "\r\n";
+        } 
+
+        //----------------
+        // Body
+        //----------------
+        result += "\r\n";
+        result += raw_body_; // combine body
+
+        return result;
     }
 
     HttpRequest HttpRequest::parse(std::string_view raw_request)
@@ -144,7 +173,7 @@ namespace http
                 throw exception::BadRequest("Invalid header value");
             }
             
-            req.headers_.insert(std::pair<std::string, std::string>(key, val));
+            req.Headers.insert(std::pair<std::string, std::string>(key, val));
             
             pos = line_end+2;
         }
@@ -153,9 +182,9 @@ namespace http
         // Parse body using Content-Length
         //-----------------------
 
-        if(req.headers_.contains("content-length"))
+        if(req.Headers.contains("content-length"))
         {
-            std::size_t content_length = std::stoi(std::string{req.headers_.at("content-length")});
+            std::size_t content_length = std::stoi(std::string{req.Headers.at("content-length")});
             if(body_part.size() < content_length)
             {
                 throw exception::BadRequest("Incomplete body");
