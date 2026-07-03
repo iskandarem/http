@@ -36,13 +36,15 @@ namespace http
 
     std::string HttpResponse::to_string() const
     {
+        auto statusInfo = getStatusInfo(status_);
         return std::format(
             "{} {} {}" // Version, status code, status 
             "{}" // Headers
             "\r\n"
             "{}", // Body
             version_,
-            status_,
+            statusInfo.code,
+            statusInfo.name,
             [this]()
             {
                 std::string headers{};

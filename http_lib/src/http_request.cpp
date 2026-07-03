@@ -172,8 +172,12 @@ namespace http
             {
                 throw exception::BadRequest("Invalid header value");
             }
-            
-            req.Headers.insert(std::pair<std::string, std::string>(key, val));
+            std::string lower_key = http::to_lower(key);
+            if(req.Headers.contains(lower_key))
+            {
+                throw exception::BadRequest("Double header name");
+            }
+            req.Headers.insert(std::pair<std::string, std::string>(lower_key, val));
             
             pos = line_end+2;
         }

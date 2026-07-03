@@ -41,7 +41,9 @@ namespace http
 
             char* buffer = new char[BUFFER_SIZE];
             bytesReceived = read(new_socket_, buffer, BUFFER_SIZE);
-            std::cout<< buffer << std::endl;
+            HttpRequest req = HttpRequest::parse(buffer);
+            std::cout << buffer << std::endl;
+            std::cout << req.to_string() << std::endl;
             if(bytesReceived < 0)
             {
                 exitWithError("failed to read bytes from client socket connection");
