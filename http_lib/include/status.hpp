@@ -14,7 +14,7 @@ namespace http
         int code{200};
         std::string_view name;
     };
-    StatusInfo getStatusInfo(STATUS s)
+    constexpr StatusInfo getStatusInfo(STATUS s)
     {
         switch (s)
         {

@@ -45,9 +45,7 @@ namespace http
         WSADATA wsaData_;
 
         #endif
-        std::string server_message_;
 
-        std::string buildResponse();
         virtual int startServer() = 0;
         virtual void closeServer() = 0;
 
