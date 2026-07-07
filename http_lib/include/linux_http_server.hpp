@@ -11,7 +11,7 @@ namespace http
 
         virtual void startListen() override;
         virtual void acceptConnection(int& new_socket) override; 
-        virtual void sendResponse() override;
+        virtual void sendResponse(const HttpResponse& response) override;
 
         virtual int startServer() override;
         virtual void closeServer() override;

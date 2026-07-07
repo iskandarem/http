@@ -1,6 +1,7 @@
 #pragma once
+#include "base_controller.hpp"
 #include <string>
-
+#include <memory>
 #ifdef _WIN32
     #include<winsock2.h>
     #include <WS2tcpip.h>
@@ -24,7 +25,9 @@ namespace http
             virtual void acceptConnection(SOCKET& new_socket) = 0;
         #endif
         
-        virtual void sendResponse() = 0;
+        void setController(std::unique_ptr<BaseController> controller);
+
+        virtual void sendResponse(const HttpResponse& response) = 0;
     protected:
         std::string ip_address_;
         int port_;
@@ -48,6 +51,8 @@ namespace http
 
         virtual int startServer() = 0;
         virtual void closeServer() = 0;
+
+        std::unique_ptr<BaseController> controller_;        
 
         static constexpr int BUFFER_SIZE = 30720;
     };

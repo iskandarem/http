@@ -13,3 +13,8 @@ http::HttpServer::HttpServer(const std::string &ip_address, int port):
     #endif
 {
 }
+
+void http::HttpServer::setController(std::unique_ptr<BaseController> controller)
+{
+    controller_ = std::move(controller);
+}

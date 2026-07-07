@@ -16,6 +16,10 @@ namespace http
             server_ = std::make_unique<LinuxHttpServer>(ip_address, port);
         #endif
     }
+    void App::addController(std::unique_ptr<BaseController> controller)
+    {
+        server_->setController(std::move(controller));
+    }
     void App::build()
     {
         server_->startListen();
