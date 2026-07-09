@@ -3,6 +3,7 @@
 #include "http_response.hpp"
 #include <unordered_map>
 #include <string>
+#include <functional>
 
 
 namespace http
