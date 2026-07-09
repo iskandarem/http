@@ -1,0 +1,34 @@
+\doxysection{status.\+hpp}
+\hypertarget{status_8hpp_source}{}\label{status_8hpp_source}\index{include/status.hpp@{include/status.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }http}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{enum}\ STATUS}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ OK\ =\ 200,}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ CREATED\ =\ 201,}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ NOT\_FOUND\ =\ 404}
+\DoxyCodeLine{00011\ \ \ \ \ \};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structhttp_1_1StatusInfo}{StatusInfo}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ code\{200\};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::string\_view\ name;}
+\DoxyCodeLine{00016\ \ \ \ \ \};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structhttp_1_1StatusInfo}{StatusInfo}}\ getStatusInfo(STATUS\ s)}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (s)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ OK:\ \textcolor{keywordflow}{return}\ \{200,\ \textcolor{stringliteral}{"{}OK"{}}\};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ CREATED:\ \textcolor{keywordflow}{return}\ \{200,\ \textcolor{stringliteral}{"{}CREATED"{}}\};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ NOT\_FOUND:\ \textcolor{keywordflow}{return}\ \{404,\ \textcolor{stringliteral}{"{}NOT\_FOUND"{}}\};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \{200,\ \textcolor{stringliteral}{"{}OK"{}}\};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \}\ \textcolor{comment}{//\ namespace\ http}}
+
+\end{DoxyCode}

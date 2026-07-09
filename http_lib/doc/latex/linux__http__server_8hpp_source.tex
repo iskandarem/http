@@ -1,0 +1,26 @@
+\doxysection{linux\+\_\+http\+\_\+server.\+hpp}
+\hypertarget{linux__http__server_8hpp_source}{}\label{linux__http__server_8hpp_source}\index{include/linux\_http\_server.hpp@{include/linux\_http\_server.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}http\_server.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }http}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }LinuxHttpServer\ :\ \textcolor{keyword}{public}\ HttpServer}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ LinuxHttpServer(\textcolor{keyword}{const}\ std::string\&\ ip\_address\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}},\ \textcolor{keywordtype}{int}\ port\ =\ 8000);}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~LinuxHttpServer()\textcolor{keyword}{\ override\ }\{\ closeServer();\ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ startListen()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ acceptConnection(\textcolor{keywordtype}{int}\&\ new\_socket)\ \textcolor{keyword}{override};\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ sendResponse(\textcolor{keyword}{const}\ HttpResponse\&\ response)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ startServer()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ closeServer()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ \}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

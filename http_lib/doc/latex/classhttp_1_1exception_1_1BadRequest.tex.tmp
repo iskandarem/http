@@ -1,0 +1,15 @@
+\doxysection{http\+::exception\+::Bad\+Request Class Reference}
+\hypertarget{classhttp_1_1exception_1_1BadRequest}{}\label{classhttp_1_1exception_1_1BadRequest}\index{http::exception::BadRequest@{http::exception::BadRequest}}
+
+
+Inheritance diagram for http\+::exception\+::Bad\+Request\+:
+% FIG 0
+
+
+Collaboration diagram for http\+::exception\+::Bad\+Request\+:
+% FIG 1
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/exception/bad\+\_\+request.\+hpp\end{DoxyCompactItemize}

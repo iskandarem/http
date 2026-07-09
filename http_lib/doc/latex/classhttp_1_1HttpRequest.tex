@@ -1,0 +1,41 @@
+\doxysection{http\+::Http\+Request Class Reference}
+\hypertarget{classhttp_1_1HttpRequest}{}\label{classhttp_1_1HttpRequest}\index{http::HttpRequest@{http::HttpRequest}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_a2bfbbfcd1867a1d6c51282e87afe5dc3}\label{classhttp_1_1HttpRequest_a2bfbbfcd1867a1d6c51282e87afe5dc3} 
+const std\+::string \& {\bfseries get\+Method} () const
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_adb6b9ec87e514d5951d74e39dd87dac0}\label{classhttp_1_1HttpRequest_adb6b9ec87e514d5951d74e39dd87dac0} 
+const std\+::string \& {\bfseries get\+Path} () const
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_ac74200483cab7a42b04503bfaf8ba4bf}\label{classhttp_1_1HttpRequest_ac74200483cab7a42b04503bfaf8ba4bf} 
+const std\+::string \& {\bfseries get\+Url} () const
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_a28e36ed67cff8877cd6607b117842682}\label{classhttp_1_1HttpRequest_a28e36ed67cff8877cd6607b117842682} 
+const std\+::string \& {\bfseries get\+Query\+Param} (std\+::string\+\_\+view key, const std\+::string \&\+\_\+default="{}"{}) const
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_aaf11e71f3d828547d72cd02034c30d4d}\label{classhttp_1_1HttpRequest_aaf11e71f3d828547d72cd02034c30d4d} 
+const std\+::string \& {\bfseries get\+Body\+As\+Text} () const
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_ad5908e4b0e4269638a3305a0321a93a1}\label{classhttp_1_1HttpRequest_ad5908e4b0e4269638a3305a0321a93a1} 
+std\+::string {\bfseries to\+\_\+string} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_a7f9056307dfa230d58fc5716317c9bc7}\label{classhttp_1_1HttpRequest_a7f9056307dfa230d58fc5716317c9bc7} 
+static \mbox{\hyperlink{classhttp_1_1HttpRequest}{Http\+Request}} {\bfseries parse} (std\+::string\+\_\+view raw\+\_\+request)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpRequest_afdbdd231edfee925d690aee65b2cf1d2}\label{classhttp_1_1HttpRequest_afdbdd231edfee925d690aee65b2cf1d2} 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ {\bfseries Headers}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/http\+\_\+request.\+hpp\item 
+src/http\+\_\+request.\+cpp\end{DoxyCompactItemize}

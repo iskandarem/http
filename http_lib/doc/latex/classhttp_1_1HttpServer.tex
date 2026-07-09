@@ -1,0 +1,53 @@
+\doxysection{http\+::Http\+Server Class Reference}
+\hypertarget{classhttp_1_1HttpServer}{}\label{classhttp_1_1HttpServer}\index{http::HttpServer@{http::HttpServer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_abed6574bad6139778e550d8c9f06ec7e}\label{classhttp_1_1HttpServer_abed6574bad6139778e550d8c9f06ec7e} 
+{\bfseries Http\+Server} (const std\+::string \&ip\+\_\+address="{}127.\+0.\+0.\+1"{}, int port=8000)
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a4781c1a99494b05cf61336808cd705b7}\label{classhttp_1_1HttpServer_a4781c1a99494b05cf61336808cd705b7} 
+virtual void {\bfseries start\+Listen} ()=0
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a8cb9c84dc043f00194f1b2d36152b9fe}\label{classhttp_1_1HttpServer_a8cb9c84dc043f00194f1b2d36152b9fe} 
+void {\bfseries set\+Controller} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classhttp_1_1BaseController}{Base\+Controller}} $>$ controller)
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a2a58166b41b513c4b413c14ca3364ef3}\label{classhttp_1_1HttpServer_a2a58166b41b513c4b413c14ca3364ef3} 
+virtual void {\bfseries send\+Response} (const \mbox{\hyperlink{classhttp_1_1HttpResponse}{Http\+Response}} \&response)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a00dd0e47b893804ab0f30a5a82105bdb}\label{classhttp_1_1HttpServer_a00dd0e47b893804ab0f30a5a82105bdb} 
+virtual int {\bfseries start\+Server} ()=0
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a12df84c9e176b4369f839b66fc59089f}\label{classhttp_1_1HttpServer_a12df84c9e176b4369f839b66fc59089f} 
+virtual void {\bfseries close\+Server} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a890546257cf55ab462fe583328f867fc}\label{classhttp_1_1HttpServer_a890546257cf55ab462fe583328f867fc} 
+std\+::string {\bfseries ip\+\_\+address\+\_\+}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a54edc2e5865d4d3266fb1531df9c0cc6}\label{classhttp_1_1HttpServer_a54edc2e5865d4d3266fb1531df9c0cc6} 
+int {\bfseries port\+\_\+}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a9f061ee3af861be84872d28ca0ecfd69}\label{classhttp_1_1HttpServer_a9f061ee3af861be84872d28ca0ecfd69} 
+long {\bfseries incoming\+\_\+message\+\_\+}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a36545ea73ce7cdcea7e8f4a1ce839594}\label{classhttp_1_1HttpServer_a36545ea73ce7cdcea7e8f4a1ce839594} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classhttp_1_1BaseController}{Base\+Controller}} $>$ {\bfseries controller\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classhttp_1_1HttpServer_a6e976b3f99e9e8fba78738b07bfbbe14}\label{classhttp_1_1HttpServer_a6e976b3f99e9e8fba78738b07bfbbe14} 
+static constexpr int {\bfseries BUFFER\+\_\+\+SIZE} = 30720
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/http\+\_\+server.\+hpp\item 
+src/http\+\_\+server.\+cpp\end{DoxyCompactItemize}

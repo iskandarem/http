@@ -1,0 +1,22 @@
+\doxysection{utility.\+hpp}
+\hypertarget{utility_8hpp_source}{}\label{utility_8hpp_source}\index{include/utility.hpp@{include/utility.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string\_view>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }http}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{void}\ log(std::string\_view\ message);}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{void}\ exitWithError(\textcolor{keyword}{const}\ std::string\&\ error\_message);}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ to\_lower(std::string\_view\ sv);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ parse\_content\_length(std::string\_view\ con\_length);}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ trim(std::string\_view\ s);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_valid\_token\_char(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_valid\_header\_name(std::string\_view\ name);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ contains\_control\_chars(std::string\_view\ value);}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}

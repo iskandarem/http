@@ -1,0 +1,35 @@
+\doxysection{http\+\_\+request.\+hpp}
+\hypertarget{http__request_8hpp_source}{}\label{http__request_8hpp_source}\index{include/http\_request.hpp@{include/http\_request.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string\_view>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }http}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classhttp_1_1HttpRequest}{HttpRequest}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classhttp_1_1HttpRequest}{HttpRequest}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getMethod()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getPath()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ relative\ path\ without\ hostname}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getUrl()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ full\ path\ }}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getQueryParam(std::string\_view\ key,\ \textcolor{keyword}{const}\ std::string\&\ \_default\ =\ \textcolor{stringliteral}{"{}"{}}\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getBodyAsText()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::string\ to\_string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classhttp_1_1HttpRequest}{HttpRequest}}\ parse(std::string\_view\ raw\_request)\ ;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::string\ method\_;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::string\ target\_;\ \textcolor{comment}{//\ /login/?from="{}linux"{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::string\ path\_;\ \textcolor{comment}{//\ /login}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::string\ version\_;\ \textcolor{comment}{//\ HTTP/1.1}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ std::string>\ query\_params\_;\ \textcolor{comment}{//\ "{}from"{}="{}linux"{},\ ...}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::string\ raw\_body\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ std::string>\ Headers;}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ \}\ \textcolor{comment}{//\ namespace\ http}}
+
+\end{DoxyCode}
