@@ -12,7 +12,6 @@ add_subdirectory(http_lib)
 
 
 # 3. Link the library to the executable
-add_executable(http main.cpp
-    controller.cpp)
+add_executable(http main.cpp)
 target_link_libraries(http PRIVATE http_lib)
 target_include_directories(http PUBLIC include)

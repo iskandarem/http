@@ -48,7 +48,9 @@ namespace http
             }
 
             log("------ Received Request from client ------\n\n");
-            auto response = controller_->handle(req);
+            HttpResponse response{};
+            response.setBody("Hello World!");
+            response.Headers["content-type"] = "text/json";
             sendResponse(response);
             close(new_socket_);
         }
