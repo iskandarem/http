@@ -22,6 +22,9 @@ namespace http
             STATUS status_{STATUS::OK};
             std::string body_;
         public:
-            std::unordered_map<std::string, std::string> Headers{{"Connection", "close"}};            
+            std::unordered_map<std::string, std::string> Headers{
+				{"Connection", "close"},
+				{"Content-Type", "application/json"}
+			};            
     };
 }

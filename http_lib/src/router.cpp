@@ -40,7 +40,7 @@ namespace http
 	HttpResponse Router::dispatch(const HttpRequest& request) const
 	{
 		auto router = std::find_if(routes_.begin(), routes_.end(), [&request](const auto& route){
-			return route.matches(request.getPath(), request.QueryParams);
+			return route.matches(request);
 		});
 		if(router != routes_.end()) return router->handler_(request);
 		return HttpResponse::notFound();

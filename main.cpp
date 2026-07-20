@@ -9,13 +9,12 @@ class ProductController : public http::BaseController
 public:
     void registerHandlers(http::Router& router) override
     {
-        router.get("/", 
+        router.get("/product/", 
         [](const http::HttpRequest&)
         {
             http::HttpResponse response{};
             response.setStatus(http::STATUS::OK);
-            response.setBody("hello from product handler\n");
-            response.Headers["Content-Type"] = "text/json";
+            response.setBody("{product_id: 1, product_name: http_lib_license}");
             return response;
         }
         );

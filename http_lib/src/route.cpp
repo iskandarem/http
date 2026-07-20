@@ -2,8 +2,10 @@
 
 namespace http 
 {
-	bool Route::matches(std::string_view path, const std::unordered_map<std::string, std::string>& params) const
+	bool Route::matches(const HttpRequest& request) const
 	{
-		return path == "/";
+		if(request.getMethod() != method_) return false;
+		if(request.getPath() != pathPattern_) return false;
+		return true;	
 	}
 }

@@ -63,7 +63,7 @@ namespace http
 	{
 		HttpResponse response{};
 		response.setStatus(NOT_FOUND);
-		response.setBody("Not Found");
+		response.setBody("Not Found\n");
 		return response;
 	}
 } // namespace http
