@@ -18,10 +18,10 @@ namespace http
             std::string to_string() const;
 			static HttpResponse notFound();
         private:
-            std::string version_;
+            std::string version_{"HTTP/1.1"};
             STATUS status_{STATUS::OK};
             std::string body_;
         public:
-            std::unordered_map<std::string, std::string> Headers;            
+            std::unordered_map<std::string, std::string> Headers{{"Connection", "close"}};            
     };
 }

@@ -32,6 +32,7 @@ namespace http
     void HttpResponse::setBody(std::string_view body)
     {
         body_ = body;
+        Headers["Content-Length"] = std::to_string(body_.size());
     }
 
     std::string HttpResponse::to_string() const
@@ -39,6 +40,7 @@ namespace http
         auto statusInfo = getStatusInfo(status_);
         return std::format(
             "{} {} {}" // Version, status code, status 
+            "\r\n"
             "{}" // Headers
             "\r\n"
             "{}", // Body

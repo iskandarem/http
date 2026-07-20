@@ -14,7 +14,8 @@ public:
         {
             http::HttpResponse response{};
             response.setStatus(http::STATUS::OK);
-            response.setBody("hello from product handler");
+            response.setBody("hello from product handler\n");
+            response.Headers["Content-Type"] = "text/json";
             return response;
         }
         );
