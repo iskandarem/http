@@ -1,7 +1,8 @@
 #pragma once 
 #include "http_server.hpp"
+#include "base_controller.hpp"
 #include <memory>
-
+#include <concepts>
 
 namespace http
 {
@@ -9,7 +10,13 @@ namespace http
     {
     public:
         App(const std::string& ip_address = "127.0.0.1", int port = 8000);
-        void addController(std::unique_ptr<BaseController> controller); 
+
+        template<std::derived_from<BaseController> TController>
+        void addController()
+        {
+            auto controller = std::make_unique<TController>();
+            controller->registerHandlers(server_->router());
+        }
         void build();
     private:
         std::unique_ptr<HttpServer> server_;

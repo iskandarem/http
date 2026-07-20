@@ -18,3 +18,8 @@ void http::HttpServer::setController(std::unique_ptr<BaseController> controller)
 {
     controller_ = std::move(controller);
 }
+
+http::Router& http::HttpServer::router()
+{
+    return router_;
+}

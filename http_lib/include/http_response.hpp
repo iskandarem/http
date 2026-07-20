@@ -16,6 +16,7 @@ namespace http
             const std::string& getBody() const;
             void setBody(std::string_view body);
             std::string to_string() const;
+			static HttpResponse notFound();
         private:
             std::string version_;
             STATUS status_{STATUS::OK};

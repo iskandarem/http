@@ -57,5 +57,11 @@ namespace http
             body_
         );
     }
-
+	HttpResponse HttpResponse::notFound()
+	{
+		HttpResponse response{};
+		response.setStatus(NOT_FOUND);
+		response.setBody("Not Found");
+		return response;
+	}
 } // namespace http

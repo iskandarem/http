@@ -48,9 +48,7 @@ namespace http
             }
 
             log("------ Received Request from client ------\n\n");
-            HttpResponse response{};
-            response.setBody("Hello World!");
-            response.Headers["content-type"] = "text/json";
+			auto response = router_.dispatch(req);
             sendResponse(response);
             close(new_socket_);
         }

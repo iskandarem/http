@@ -23,11 +23,6 @@ namespace http
         return target_;
     }
 
-    const std::string& HttpRequest::getQueryParam(std::string_view key, const std::string& _default) const
-    {
-        return (query_params_.contains(std::string{key}))? query_params_.at(std::string{key}) : _default;
-    }
-    
     const std::string& HttpRequest::getBodyAsText() const
     {
         return raw_body_;

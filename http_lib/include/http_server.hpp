@@ -1,5 +1,6 @@
 #pragma once
 #include "base_controller.hpp"
+#include "router.hpp"
 #include <string>
 #include <memory>
 #ifdef _WIN32
@@ -26,7 +27,7 @@ namespace http
         #endif
         
         void setController(std::unique_ptr<BaseController> controller);
-
+        Router& router();
         virtual void sendResponse(const HttpResponse& response) = 0;
     protected:
         std::string ip_address_;
@@ -48,7 +49,8 @@ namespace http
         WSADATA wsaData_;
 
         #endif
-
+		// routers that handle requests
+		Router router_;
         virtual int startServer() = 0;
         virtual void closeServer() = 0;
 
