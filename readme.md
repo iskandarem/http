@@ -1,4 +1,4 @@
-### HttpLib - a lightweight C++ HTTP library 
+### HttpLib - a lightweight C++ HTTP-Server library 
 
 
 **HttpLib** offers basic implementation for http-request, http-response, http-server and app classes. 
