@@ -15,10 +15,10 @@ namespace http
         void addController()
         {
             auto controller = std::make_unique<TController>();
-            controller->registerHandlers(server_->router());
+            controller->registerHandlers(server_.router());
         }
         void build();
     private:
-        std::unique_ptr<HttpServer> server_;
+        HttpServer server_;
     };
 }

@@ -35,7 +35,7 @@ namespace http
         Headers["Content-Length"] = std::to_string(body_.size());
     }
 
-    std::string HttpResponse::to_string() const
+    std::string HttpResponse::serialize() const
     {
         auto statusInfo = getStatusInfo(status_);
         return std::format(

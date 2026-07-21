@@ -8,7 +8,6 @@ if(WIN32)
         src/app.cpp
         src/http_server.cpp
         src/utility.cpp
-        src/windows_http_server.cpp
         src/http_request.cpp) # have to add the source files here, e.g., src/tcp_server.cpp
 else()
     # Create the library target (omit STATIC/SHARED to let the user decide dynamically)
@@ -17,7 +16,6 @@ else()
         src/http_request.cpp
         src/http_response.cpp
         src/http_server.cpp
-        src/linux_http_server.cpp
         src/route.cpp
         src/router.cpp
         src/utility.cpp

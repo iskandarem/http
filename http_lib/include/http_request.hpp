@@ -13,7 +13,7 @@ namespace http
         const std::string& getPath() const; // relative path without hostname
         const std::string& getUrl() const; // full path 
         const std::string& getBodyAsText() const;
-        std::string to_string() const;
+        std::string serialize() const;
         static HttpRequest parse(std::string_view raw_request) ;
     private:
         std::string method_;

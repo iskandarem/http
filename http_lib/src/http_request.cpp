@@ -28,7 +28,7 @@ namespace http
         return raw_body_;
     }
 
-    std::string HttpRequest::to_string() const
+    std::string HttpRequest::serialize() const
     {
         std::string result{};
         
