@@ -1,8 +1,8 @@
 #pragma once
 #include "http_request.hpp"
-#include "http_response.hpp" 
+#include "http_response.hpp"
+#include "request_handler.hpp" 
 #include <string>
-#include <functional>
 
 
 namespace http
@@ -11,7 +11,7 @@ namespace http
     {
         std::string method_;
         std::string pathPattern_;
-        std::function<HttpResponse(const HttpRequest&)> handler_;
+		RequestHandler handler_;
 		bool matches(const HttpRequest& request) const;
     };
 } // namespace http

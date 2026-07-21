@@ -3,7 +3,7 @@
 namespace http 
 {
 	
-	void Router::get(std::string path, Handler handler)
+	void Router::get(std::string path, RequestHandler handler)
 	{
 		routes_.push_back(
 			Route{
@@ -15,7 +15,7 @@ namespace http
 	}
 
 	
-	void Router::post(std::string path, Handler handler)
+	void Router::post(std::string path, RequestHandler handler)
 	{
 		routes_.push_back(
 			Route{
@@ -26,7 +26,7 @@ namespace http
 		);
 	}
 
-	void Router::put(std::string path, Handler handler)
+	void Router::put(std::string path, RequestHandler handler)
 	{
 		routes_.push_back(
 			Route{
